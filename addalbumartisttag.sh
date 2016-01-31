@@ -19,7 +19,8 @@ while read g; do
 		echo "An “ALBUMARTIST” will be add.\n"
 		metaflac --set-tag="ALBUMARTIST=`more "$g"-metatag-temp | grep --ignore-case -e '^ARTIST' | sed 's/^ARTIST=//'`" "$g"
 	fi
-	rm -i "$g"-metatag-temp
+
+	rm "$g"-metatag-temp
 	ls "$g"
 done < temporary-list-file
 
